@@ -29,12 +29,12 @@ class HomePage:
         return LoginPage(self.browser)
 
 
-browser = webdriver.Firefox(executable_path='/Users/akin/Desktop/geckodriver')
+browser = webdriver.Firefox(executable_path='/Users/username/Desktop/geckodriver')
 browser.implicitly_wait(5)
 
 home_page = HomePage(browser)
 login_page = home_page.go_to_login_page()
-login_page.login("akinyolci", "Nika")
+login_page.login("username", "password")
 
 browser.close()
 
@@ -42,7 +42,7 @@ browser.close()
 def test_login_page(browser):
     home_page = HomePage(browser)
     login_page = home_page.go_to_login_page()
-    login_page.login("akinyolci", "Nika")
+    login_page.login("username", "password")
 
     errors = browser.find_element(By.CSS_SELECTOR, '#error_message')
     assert len(errors) == 0
